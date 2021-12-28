@@ -14,22 +14,58 @@ class Book():
     """
     
     def __init__(self, isbn, title=None, authors=None, publisher=None,
-                 year=None, language=None, description=None, location=None):
+                 year=None, language=None, description=None, location="Unknown"):
+        """
         
-        title = title
-        authors = authors
-        publisher = publisher
-        year = year
-        language = language
-        description = description
-        location = location
+
+        Parameters
+        ----------
+        isbn : TYPE
+            DESCRIPTION.
+        title : TYPE, optional
+            DESCRIPTION. The default is None.
+        authors : TYPE, optional
+            DESCRIPTION. The default is None.
+        publisher : TYPE, optional
+            DESCRIPTION. The default is None.
+        year : TYPE, optional
+            DESCRIPTION. The default is None.
+        language : TYPE, optional
+            DESCRIPTION. The default is None.
+        description : TYPE, optional
+            DESCRIPTION. The default is None.
+        location : TYPE, optional
+            DESCRIPTION. The default is None.
+
+        Returns
+        -------
+        None.
+
+        """
+        self.title = title
+        self.authors = authors
+        self.publisher = publisher
+        self.year = year
+        self.language = language
+        self.description = description
+        self.location = location
         # 
         if not title and not authors and not publisher :
             self.collect_metadata(isbn)
 
 
-    def __str__():
-        pass
+
+    def __str__(self):
+        """
+        
+
+        Returns
+        -------
+        str
+            A listing.
+
+        """
+        return F"Tilte:\t{self.title}\nAuthors:\t{self.authors}\nPublisher:\t{self.publisher}\nYear:\t{self.year}\nLanguage:\t{self.language}\nDescription:\t{self.description}\nLocation:\t{self.location}\n"
 
 
     def collect_metadata(self, isbn):
@@ -56,16 +92,34 @@ class Book():
 
 
     def change_authors(self, new_authors):
-        pass
+        self.authors = new_authors
+
+
+    def change_publisher(self, new_publisher):
+        self.publisher = new_publisher
+
+
+    def change_year(self, new_year):
+        self.year = new_year
+
+
+    def change_language(self, new_language):
+        self.language = new_language
+
+
+    def change_description(self, new_description):
+        self.description = new_description
+
+
+    def change_location(self, new_location):
+        self.location = new_location
 
 
 
 
-
-
-
-
-###############
+################
+# Some Testing #
+################
 isbn13_1 = isbnlib.to_isbn13("3716011533")
 isbn13_2 = isbnlib.to_isbn13("3596254590")
 isbn13_3 = "9789082942187"
